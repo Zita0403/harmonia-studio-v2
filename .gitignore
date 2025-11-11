@@ -1,0 +1,22 @@
+# OS fájlok
+.DS_Store
+Thumbs.db
+
+# PHP cache / temp
+*.log
+*.cache
+*.tmp
+
+# Composer / vendor (ha használod)
+vendor/
+
+# IDE / szerkesztő
+.idea/
+*.vscode/
+
+# XAMPP temp / session
+tmp/
+session/
+
+# SASS generált CSS (ha csak SCSS-t akarsz verziózni)
+assets/styles/*.css

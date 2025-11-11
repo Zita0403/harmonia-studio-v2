@@ -1,5 +1,7 @@
 # Harmónia Stúdió – Adminisztrációs rendszer rövid ismertetés
 
+![Harmónia Stúdió Admin oldal képernyőképe](assets/images/cosmetic_website_v2.png)
+
 Ez a projekt egy fiktív kozmetikai stúdió adminisztrációs felületét tartalmazza, ahol az adminisztrátor szerkesztheti a főoldal tartalmait, hozzáadhat kezeléseket és módosíthatja az információkat.
 
 ---

@@ -4,7 +4,7 @@ session_start();
 $requestUri = $_SERVER['REQUEST_URI'];
 $parsedUrl = parse_url($requestUri, PHP_URL_PATH);
 // BASE_URL-ből származó "gyökér" levágása
-$cleanPath = str_replace('/exam_project/', '', $parsedUrl);
+$cleanPath = str_replace('/cosmetic_website_v2/', '', $parsedUrl);
 // Ha nem az index, és létezik ilyen fájl, töltsük be
 if (!empty($cleanPath) && $cleanPath !== 'index' && file_exists(__DIR__ . '/' . $cleanPath . '.php')) {
     require __DIR__ . '/' . $cleanPath . '.php';
