@@ -39,7 +39,7 @@ A végleges elérési út: `C:\xampp\htdocs\cosmetic_website_v2\`
 
 ## Könyvtárstruktúra
 
-exam_project/ 
+cosmetic_website_v2/ 
 │── admin/ # Admin felület 
 │── assets/ # Képek, Stílusok (A projekt SASS (.scss) fájlokat használ a stílusok kezelésére.) 
 │── config/ # Adatbázis és segédfüggvények 
