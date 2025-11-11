@@ -8,8 +8,8 @@ Ez a projekt egy fiktív kozmetikai stúdió adminisztrációs felületét tarta
 
 ## Információk a letöltéshez, megnyitáshoz
 
-Másold a `exam_project` mappát a `C:\xampp\htdocs\` könyvtárba.
-A végleges elérési út: `C:\xampp\htdocs\exam_project\`
+Másold a `cosmetic_website_v2` mappát a `C:\xampp\htdocs\` könyvtárba.
+A végleges elérési út: `C:\xampp\htdocs\cosmetic_website_v2\`
 
 ---
 
@@ -25,8 +25,8 @@ A végleges elérési út: `C:\xampp\htdocs\exam_project\`
 
 ## Weboldalak elérése
 
-- [Főoldal megnyitása:](http://localhost/exam_project/)
-- [Admin bejelentkezés:](http://localhost/exam_project/login_system/login.php)
+- [Főoldal megnyitása:](http://localhost/cosmetic_website_v2/)
+- [Admin bejelentkezés:](http://localhost/cosmetic_website_v2/login_system/login.php)
 
 ---
 
