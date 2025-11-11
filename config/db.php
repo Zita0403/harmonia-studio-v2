@@ -4,7 +4,7 @@ function getDbConnection():PDO {
     $servername = "localhost"; 
     $username = "root";        
     $password = "";            
-    $dbname = "exam_project";  
+    $dbname = "cosmetic_website_v2";  
 
     try {
         $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8mb4";

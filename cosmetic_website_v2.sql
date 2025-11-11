@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `exam_project`
+-- Adatbázis: `cosmetic_website_v2`
 --
 
 -- --------------------------------------------------------
