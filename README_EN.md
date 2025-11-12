@@ -1,10 +1,12 @@
 <p align="right">
-  🌐 <a href="README_EN.md">English version</a>
+  🌐 <a href="README.md">Magyar verzió</a>
 </p>
 
 # Harmony Studio – Administration System
 
 **Language:** [HU Magyar](README.md) | GB English
+
+![Harmony Studio Admin Page Screenshot](assets/images/cosmetic_website_v2.png)
 
 This project presents the **admin interface of the fictional beauty salon "Harmony Studio**, developed as a continuation of my **demonstration website** created at the end of the first module of the **Full Stack Web Development Training** (HTML+CSS(+JavaScript basics) Front-End Development course) and as **the final project of the second module** (PHP Programming + MySQL Database Training).
 

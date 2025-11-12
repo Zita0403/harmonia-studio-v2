@@ -6,7 +6,7 @@
 
 **Nyelv:** HU Magyar | [GB English](README_EN.md)
 
-![Harmónia Studio Admin Page Screenshot](assets/images/cosmetic_website_v2.png)
+![Harmónia Stúdió Admin oldalának képernyőképe](assets/images/cosmetic_website_v2.png)
 
 Ez a projekt a **Harmónia Stúdió fiktív kozmetikai szalonjának admin felületét** mutatja be, amely a **Full Stack Webfejlesztő képzés** első moduljának (HTML+CSS(+JS alapok) front-end webfejlesztő tanfolyam) végén készített **bemutató weboldalam folytatásaként** készült a második modul (PHP programozás + MySQL adatbázis képzés) záró projektjeként.
 
