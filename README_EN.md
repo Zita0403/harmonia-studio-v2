@@ -6,7 +6,7 @@
 
 **Language:** [HU Magyar](README.md) | GB English
 
-![Harmony Studio Admin Page Screenshot](assets/images/cosmetic_website_v2.png)
+![Harmony Studio Admin Page Screenshot](public/assets/images/cosmetic_website_v2.png)
 
 This project presents the **admin interface of the fictional beauty salon "Harmony Studio**, developed as a continuation of my **demonstration website** created at the end of the first module of the **Full Stack Web Development Training** (HTML+CSS(+JavaScript basics) Front-End Development course) and as **the final project of the second module** (PHP Programming + MySQL Database Training).
 
@@ -124,7 +124,7 @@ To ensure the application runs correctly and securely, add the following configu
 ## Accessing Websites
 
 Live Demo
-The project is available live at the following link: harmoniastudio.zita.dev
+The project is available live at the following link: **[harmoniastudio.zita.dev](https://harmoniastudio.zita.dev)**
 
 Local Environment
 Once the Virtual Host is configured, you can access the site locally:

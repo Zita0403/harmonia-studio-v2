@@ -6,7 +6,7 @@
 
 **Nyelv:** HU Magyar | [GB English](README_EN.md)
 
-![Harmónia Stúdió Admin oldalának képernyőképe](assets/images/cosmetic_website_v2.png)
+![Harmónia Stúdió Admin oldalának képernyőképe](public/assets/images/cosmetic_website_v2.png)
 
 Ez a projekt a **Harmónia Stúdió fiktív kozmetikai szalonjának admin felületét** mutatja be, amely a **Full Stack Webfejlesztő képzés** első moduljának (HTML+CSS(+JS alapok) front-end webfejlesztő tanfolyam) végén készített **bemutató weboldalam folytatásaként** készült a második modul (PHP programozás + MySQL adatbázis képzés) záró projektjeként.
 
@@ -123,7 +123,7 @@ A C:\xampp\apache\conf\extra\httpd-vhosts.conf fájlhoz add hozzá az alábbiaka
 
 ## Weboldalak elérése
 
-A projekt élőben is megtekinthető az alábbi linken: harmoniastudio.zita.dev
+A projekt élőben is megtekinthető az alábbi linken: [Nézd meg élőben!](https://harmoniastudio.zita.dev)
 
 - [Főoldal megnyitása:](http://localhost/)
 - [Admin bejelentkezés:](http://localhost/login)
