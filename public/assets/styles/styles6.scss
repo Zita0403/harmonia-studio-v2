@@ -1,0 +1,87 @@
+/*Süti szabályzat stílusa*/
+@import "reset";
+@import "mixin";
+@import "css-variables";
+
+body {
+
+    main {
+        grid-area: main-area;
+        background-color: $darkBg;
+        background-image: url(../images/facial-bg-1400x1200.jpg);
+        @include bgImg ();
+        display: grid;
+        
+        div {
+            margin: 0 40px;
+            padding: 1em;
+            max-width: 400px;
+            background-color: #f0ca96b8;
+
+            a {
+                @include text();
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            
+            h1 {
+                @include mainTitle ();
+                text-align: center;
+            }
+
+            h2 {
+                @include mainTitle ();
+                font-size: 20px;
+                text-align: center;
+            }
+
+            p {
+                @include text();
+            }
+
+            ul {
+                li {
+                    @include text();
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:576px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}
+
+@media screen and (min-width:992px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}

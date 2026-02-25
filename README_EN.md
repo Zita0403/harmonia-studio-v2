@@ -18,28 +18,64 @@ The purpose of this project is to create a **modern, maintainable, and secure ad
 - **Stores** services, homepage sections, treatment categories, and admin users in a database.
 - Provides an **admin interface** to **add, edit, and delete data (CRUD)** operations.
 - Includes **user authentication** with password hashing (`password_hash` / `password_verify`) and **session expiration handling**.
-- Implements **routing** using `.htaccess` and a front controller (handling GET/POST routes).
 - Features a **JavaScript countdown timer** for session expiration and automatic refresh.
 - Uses a **modular, function-oriented structure** with a clear and maintainable directory layout.
+- **Clean URL & Routing:** Implemented with .htaccess and Front Controller pattern to ensure clean and user-friendly paths (e.g., /login, /admin).
+- **Responsive Design:** A Mobile-First interface built with SASS for optimal viewing across all devices.
 
 ---
 
 ## Directory structure
 
-cosmetic_website_v2/
-│── admin/ # Admin interface
-│── assets/ # Images, styles (the project uses SASS (.scss) for style management)
-│── config/ # Database configuration and helper functions
-│── constans/ # File path constants
-│── controllers/ # Request handling
-│── includes/ # Header, footer, navigation
-│── login_system/ # Login, authentication, and logout
-│── pages/ # Additional pages (treatments, cookies, price list, booking)
-│── scripts/ # Dynamic scripts (jQuery)
-│── cosmetic_website_v2.sql # Database file
-│── index.php # Homepage
-│── logo.ico # Website icon
-│── README.md # Documentation
+```text
+cosmetic_website_v2/ 
+│   README.md
+│   README_EN.md
+│
+├───app/                                 # Backend logic (private/non-public)
+│   │   .env                             # Sensitive data (NOT included in the repo)
+│   │   .env.local
+│   │   cosmetic_website_v2.sql          # Database export
+│   │
+│   ├───admin/                           # Admin Dashboard: Central interface for content management (CRUD UI)
+│   │
+│   ├───config/                          # Database helpers, DB connection, SQL queries, and security filters
+│   │
+│   ├───constans/                        # Global file paths and constants
+│   │
+│   ├───controllers/                     # Central request handler, validation, and CRUD logic
+│   │
+│   ├───includes/                        # Reusable modules (header, footer, nav)                  
+│   │
+│   └───login_system/                    # Authentication and logout management
+│
+└───public/                              # Public web directory (Document Root)
+    │   .htaccess                        # URL rewrite rules for index.php redirection
+    │   index.php                        # Entry point (Front Controller): URL routing, session & dependency management
+    │   logo.ico                         # Site icon (favicon)
+    │   
+    ├───assets/                          # Static assets
+    │   ├───images/                      # Site images and uploaded content
+    │   │
+    │   ├───scripts/
+    │   │       scripts.js               # Client-side logic: interactions, validations, and UI animations
+    │   │
+    │   └───styles/ # Stílusok kezelése  # Stylesheet management
+    │           _*.scss                  # SASS partials (variables, mixins, resets)
+    │           *.scss                   # Page-specific SASS source files
+    │           *.css                    # Compiled, browser-ready stylesheets
+    │
+    └───pages/                           # Dynamically loaded subpages
+            404.php
+            body-treatment.php
+            booking.php
+            cookie-policy.php
+            facial-treatment.php
+            hair-removal.php
+            home.php
+            make-up.php
+            price-list.php
+```
 
 ---
 
@@ -58,8 +94,20 @@ Relationships: highlighted treatments and categories are linked with a one-to-ma
 
 ## Information for downloading and opening
 
-Copy the `cosmetic_website_v2` folder to the `C:\xampp\htdocs\` directory.
-The final path is: `C:\xampp\htdocs\cosmetic_website_v2\`
+1. Copying: Place the cosmetic_website_v2 folder into your C:\xampp\htdocs\ directory.
+
+2. Virtual Host Configuration (Recommended):
+To ensure the application runs correctly and securely, add the following configuration to your C:\xampp\apache\conf\extra\httpd-vhosts.conf file:
+
+```text
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/cosmetic_website_v2/public"
+    ServerName localhost
+</VirtualHost>
+```
+3. Database: Import the cosmetic_website_v2.sql file using phpMyAdmin.
+
+4. Environment Variables: Set up your database credentials in the app/.env.local file.
 
 ---
 
@@ -75,8 +123,14 @@ The final path is: `C:\xampp\htdocs\cosmetic_website_v2\`
 
 ## Accessing Websites
 
-- [Homepage:](http://localhost/cosmetic_website_v2/)
-- [Admin Login:](http://localhost/cosmetic_website_v2/login_system/login.php)
+Live Demo
+The project is available live at the following link: harmoniastudio.zita.dev
+
+Local Environment
+Once the Virtual Host is configured, you can access the site locally:
+
+- [Client Homepage:](http://localhost/)
+- [Admin Login:](http://localhost/login)
 
 ---
 

@@ -1,0 +1,206 @@
+/*Admin dashboard stílusa*/
+@import "reset";
+@import "mixin";
+@import "css-variables";
+
+body {
+
+    main {
+        grid-area: main-area;
+        background-color: $darkBg;
+        background-image: url(../images/2.jpg);
+        @include bgImg ();
+        display: flex;
+        flex-direction: column;
+
+        nav.admin-sidebar {
+            background-color: $lightBg !important;
+            background-image: none !important; 
+            z-index: 0;
+            width: 100%; 
+            height: 100%; 
+            position: relative; 
+            top: 0;
+            left: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start; 
+            align-items: flex-start; 
+        
+            .admin-nav {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                
+                li {
+                    margin-bottom: 15px;
+        
+                    a {
+                        @include text ();
+                        text-decoration: none;
+                        font-size: 16px;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-content {
+            header {
+                h1 {
+                    @include mainTitle ();      
+                }
+
+                h3 {
+                    @include mainTitle (); 
+                    font-size: 20px; 
+                }
+
+                p {
+                    @include text ();  
+                }
+            }
+            flex-grow: 1;
+            padding: 30px;
+            background-color: $lightBgBlur; 
+            
+            h2 {
+                @include mainTitle ();
+                font-size: 20px;
+                text-align: center;
+                background-color: $lightBgBlur;
+                border-radius: 20px;
+                border: 1px solid $lightBg;
+            }
+
+            article {
+                form {
+                    @include text();
+                    font-size: 1rem;
+                    max-width: 400px;
+                    margin: 0 40px;
+                    margin-bottom: 2em;
+                    padding: 1em;
+                    border-radius: 20px;
+
+                    input {
+                        width: 100%;
+                        padding: 0.5em;
+                        margin: 0.5em 0;
+                        box-sizing: border-box;
+                        border-radius: 0.5rem;
+                        border: none;
+                    }
+    
+                    textarea {
+                        width: 100%;
+                        height: 150px;
+                        padding: 0.5em;
+                        margin: 0.5em 0;
+                        resize: none;
+                        border: none;
+                        border-radius: 0.5rem;
+                    }
+
+                    .btn {
+                        @include text ();
+                        font-size: 1rem;
+                        text-align: center;
+                        background-color: $primary;
+                        border: none;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        width: 100%;
+                        padding: 0.7em;
+                        margin-top: 0.7em;
+                    }
+
+                    .btn:hover {
+                        background-color: $secondary;
+                        color: $primary;
+                    }
+
+                    .hover-effect {
+                        transition: transform 0.5s ease; 
+                    }
+                    
+                    .hover-effect:hover {
+                        transform: scale(0.9); 
+                        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.484);
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+            
+                    li {
+                        margin-bottom: 10px;
+            
+                        a {
+                            @include text ();
+                            text-decoration: none;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    @include text ();
+                    font-size: 1rem;
+                    text-align: center;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:576px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    body {
+
+        main {
+            grid-area: main-area;
+            flex-direction: row;
+
+            nav.admin-sidebar {
+                width: 220px;;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:992px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    body {
+
+        main {
+            grid-area: main-area;
+        }
+    }
+}

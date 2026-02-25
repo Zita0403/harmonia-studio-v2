@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F0CA96;
+  background-image: url("../images/booking-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+body .error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #4e3b2b;
+  font-family: "Noto Serif Display", serif;
+  padding: 20px;
+  background: rgba(240, 202, 150, 0.627);
+  border-radius: 10px;
+}
+body .error-wrapper h1 {
+  font-weight: 800;
+  font-size: 40px;
+}
+body .error-wrapper .button-container > a {
+  text-decoration: none;
+  color: #4e3b2b;
+  font-size: 20px;
+}
+body .error-wrapper .button-container > a:hover {
+  color: #B58456;
+}/*# sourceMappingURL=404.css.map */

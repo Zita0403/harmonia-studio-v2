@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteRule ^teszt$ index.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+ErrorDocument 404 /pages/404.php

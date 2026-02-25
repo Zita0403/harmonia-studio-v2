@@ -20,3 +20,8 @@ session/
 
 # SASS generált CSS (ha csak SCSS-t akarsz verziózni)
 assets/styles/*.css
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
