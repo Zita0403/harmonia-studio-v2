@@ -31,7 +31,7 @@ $about = getSectionContent('about');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST)) {
         handleAdminPostRequests($_POST, $_FILES);
-        header("Location: " . BASE_URL . "admin/admin.php");
+        header("Location: " . BASE_URL . "admin");
         exit;
     } else {
         error_log("Üres POST kérés érkezett az admin.php oldalra.");
