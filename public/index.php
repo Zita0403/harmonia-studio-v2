@@ -83,8 +83,12 @@ require_once ROOT_PATH . 'app/config/helper_functions.php';
 
 // Login feldolgozás
 if ($path === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    require $pageFile; 
-    exit; // Ha a login.php-ban sikeres volt az átirányítás, itt megáll a kód
+    require_once ROOT_PATH . 'app/login_system/auth_functions.php';
+    $error = handleLoginRequest();
+if ($error === null) {
+        header("Location: " . BASE_URL . "admin");
+        exit;
+    }
 }
 
 // Admin védelem
