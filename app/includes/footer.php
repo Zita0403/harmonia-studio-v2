@@ -30,9 +30,9 @@ require_once dirname(__DIR__) . '/constans/constans.php';
                     </ul>
                 </div>
                 <div class="brands-icons">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-pinterest"></i>
-                    <i class="fa-brands fa-square-instagram"></i>
+                    <i class="fa-facebook"></i>
+                    <i class="fa-pinterest"></i>
+                    <i class="fa-square-instagram"></i>
                 </div>
             </div>
             <div class="footer-navigation">
@@ -62,9 +62,9 @@ require_once dirname(__DIR__) . '/constans/constans.php';
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2758.5771045272263!2d20.166039275805925!3d46.25863428008429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4744883e02a029df%3A0xed22b73477369d4!2sSzeged%2C%20Fels%C5%91%20Tisza-Part!5e0!3m2!1shu!2shu!4v1721307233808!5m2!1shu!2shu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="footer-bottom">
-            <p>© <script>document.write(new Date().getFullYear())</script> Harmónia Stúdió. All Right Reserved.</p>
+            <p>© <span id="current-year"></span> Harmónia Stúdió. All Right Reserved.</p>
         </div>
     </footer>
-    <script src="<?= BASE_URL; ?>assets/scripts/scripts.js" defer></script>
+    <script src="<?= BASE_URL; ?>assets/js/scripts.js" defer></script>
 </body>
 </html>

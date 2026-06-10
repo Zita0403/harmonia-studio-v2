@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const currentYear = document.getElementById("current-year");
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
     // Cookie elfogadás ellenőrzése
     const cookieConsent = localStorage.getItem("cookieConsent");
     const modal = document.querySelector(".modal");

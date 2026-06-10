@@ -22,7 +22,7 @@
         <div>
         <?php if (!empty($arguments)): ?>
             <?php foreach ($arguments as $argument): ?>
-                <p><i class="fa-solid fa-seedling"></i><?= e($argument['content']); ?></p>
+                <p><i class="fa-seedling"></i><?= e($argument['content']); ?></p>
             <?php endforeach; ?>
         <?php else: ?>
             <p>Nincsenek elérhető érvek jelenleg.</p>

@@ -48,8 +48,15 @@ body {
         transition: opacity 0.3s ease, visibility 0.3s ease;
 
         .fa-chevron-up {
-            color: #4e3b2b;
-            font-size: 30px;
+            display: inline-block;
+            background-size: contain;    
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;    
+            background-image: url(../webfonts/angle-up-solid-full.svg);
+            filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
+            width: 30px;
+            height: 30px;
         }
     }
 
@@ -103,22 +110,42 @@ body {
             gap: 10px;
             margin: 10px 0;
 
-            .fa-brands {
-                font-size: 1.5rem;
+            i {
+                display: inline-block;
+                width: 24px;                 
+                height: 24px;
+                background-size: contain;    
+                background-repeat: no-repeat;
+                background-position: center;
+                vertical-align: middle;      
+                margin: 0 5px;
                 cursor: pointer;
                 transition: all 0.2s ease-in-out;
+                filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+            }
+
+            .fa-facebook {
+                background-image: url(../webfonts/facebook-brands-solid-full.svg);
+            }
+
+            .fa-pinterest {
+                background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+            }
+
+            .fa-square-instagram {
+                background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
             }
 
             .fa-facebook:hover {
-                color: #1877F2;
+                filter: brightness(0) saturate(100%) invert(35%) sepia(83%) saturate(3403%) hue-rotate(203deg) brightness(100%) contrast(90%);
             }
 
             .fa-pinterest:hover {
-                color: #CB2027;
+                filter: brightness(0) saturate(100%) invert(16%) sepia(49%) saturate(7317%) hue-rotate(350deg) brightness(85%) contrast(88%);
             }
 
             .fa-square-instagram:hover {
-                color: #FF3780;
+                filter: brightness(0) saturate(100%) invert(36%) sepia(78%) saturate(3177%) hue-rotate(317deg) brightness(101%) contrast(101%);
             }
         }
     }
@@ -163,12 +190,27 @@ body {
             display: block;
             margin-right: 20px;
 
+.fa-bars,
+            .fa-times {
+                width: 30px;                 
+                height: 30px;
+                background-size: contain;    
+                background-repeat: no-repeat;
+                background-position: center;
+                vertical-align: middle;      
+                margin: 0 5px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+            }
+
             .fa-bars {
-                display: block;
-                font-size: 28px;
+                background-image: url(../webfonts/bars-solid-full.svg);
+                display: inline-block;
             }
                     
             .fa-times {
+                background-image: url(../webfonts/xmark-solid-full.svg);
                 display: none;
             }
 
@@ -207,11 +249,29 @@ body {
                 font-size: 0.9rem;
                 display: block;
                 padding: 10px;
+
+                .fa-chevron-down {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../webfonts/chevron-down-solid-full.svg);
+                    background-size: contain;    
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    vertical-align: middle;      
+                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                    padding-left: 10px;
+                }
             }
 
             > li:hover > a {
                 color: bisque;
                 transition: all 0.2s ease-in-out;
+
+                .fa-chevron-down {
+                    filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
+                    transition: all 0.2s ease-in-out;
+                }
             }
     
             .hamburger-submenu {
@@ -228,9 +288,18 @@ body {
                 }
             }
 
-            .fa-chevron-right {
-                padding-left: 10px;
-            }
+                .fa-chevron-down {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../webfonts/chevron-down-solid-full.svg);
+                    background-size: contain;    
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    vertical-align: middle;      
+                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                    padding-left: 10px;
+                }
         }
 
         .hamburger-main-menu.open {
@@ -323,22 +392,39 @@ body {
                     display: flex;
                     justify-content: space-around;
 
-                    .fa-brands {
-                        font-size: 2rem;
+                    i {
+                        display: inline-block;
+                        width: 40px;                 
+                        height: 40px;
+                        background-size: contain;    
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;    
                         cursor: pointer;
                         transition: all 0.2s ease-in-out;
+                        filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                    }
+
+                    .fa-facebook {
+                        background-image: url(../webfonts/facebook-brands-solid-full.svg);
+                    }
+                    .fa-pinterest {
+                        background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+                    }
+                    .fa-square-instagram {
+                        background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
                     }
         
                     .fa-facebook:hover {
-                        color: #1877F2;
+                        filter: brightness(0) saturate(100%) invert(35%) sepia(83%) saturate(3403%) hue-rotate(203deg) brightness(100%) contrast(90%);
                     }
-        
+
                     .fa-pinterest:hover {
-                        color: #CB2027;
+                        filter: brightness(0) saturate(100%) invert(16%) sepia(49%) saturate(7317%) hue-rotate(350deg) brightness(85%) contrast(88%);
                     }
-        
+
                     .fa-square-instagram:hover {
-                        color: #FF3780;
+                        filter: brightness(0) saturate(100%) invert(36%) sepia(78%) saturate(3177%) hue-rotate(317deg) brightness(101%) contrast(101%);
                     }
                 }
             }

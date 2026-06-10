@@ -13,18 +13,13 @@ require_once __DIR__ . '/navigation.php';
     <meta name="keywords" content="szépségszalon, kozmetika, arckezelések, pigmentfolt halványítás, AHA savas hámlasztás, anti-age kezelés, mezoterápia, testkezelések, alakformáló-cellulit kezelés, feszesítő kezelés, szőreltávolítás, lézeres szőrtelenítés, szemöldök formázás, nappali smink, alkalmi smink, menyasszonyi smink">
     <meta name="author" content="Lukács Zita">
     <link rel="icon" href="<?= BASE_URL ?>logo.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- Az oldalak stílusai, oldalanként változhat, változókba mentve -->
     <link rel="stylesheet" href="<?php print BASE_URL . $pageStylesheet; ?>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
 </head>
 <body>
 <!-- Lap tetejére ugrás ikon -->
 <button class="to-top">
-    <i class="fa-solid fa-chevron-up"></i>
+    <i class="fa-chevron-up"></i>
 </button>
 <!-- Elérhetőségek -->
 <div class="first-nav">
@@ -33,9 +28,9 @@ require_once __DIR__ . '/navigation.php';
         <li>fiktivcim@gmail.com</li>
     </ul>
     <div class="brands-icons">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-pinterest"></i>
-        <i class="fa-brands fa-square-instagram"></i>
+        <i class="fa-facebook"></i>
+        <i class="fa-pinterest"></i>
+        <i class="fa-square-instagram"></i>
     </div>
 </div>
 <!-- Az oldlal logo-ja -->
@@ -71,7 +66,7 @@ require_once __DIR__ . '/navigation.php';
             <li class="<?= isActive($item['url']); ?>">
                 <a href="<?= BASE_URL . $item['url']; ?>"><?= $item['label']; ?>
                     <?php if (!empty($item['submenu'])): ?>
-                        <i class="fa-solid fa-chevron-down toggle-submenu"></i>
+                        <i class="fa-chevron-down toggle-submenu"></i>
                     <?php endif; ?>
                 </a>
                 <?php if (!empty($item['submenu'])): ?>
