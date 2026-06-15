@@ -13,8 +13,7 @@ require_once __DIR__ . '/navigation.php';
     <meta name="keywords" content="szépségszalon, kozmetika, arckezelések, pigmentfolt halványítás, AHA savas hámlasztás, anti-age kezelés, mezoterápia, testkezelések, alakformáló-cellulit kezelés, feszesítő kezelés, szőreltávolítás, lézeres szőrtelenítés, szemöldök formázás, nappali smink, alkalmi smink, menyasszonyi smink">
     <meta name="author" content="Lukács Zita">
     <link rel="icon" href="<?= BASE_URL ?>logo.ico" type="image/x-icon">
-    <!-- Az oldalak stílusai, oldalanként változhat, változókba mentve -->
-    <link rel="stylesheet" href="<?php print BASE_URL . $pageStylesheet; ?>">
+    <link rel="stylesheet" href="<?php print BASE_URL . $pageStylesheet . '?v=2'; ?>">
 </head>
 <body>
 <!-- Lap tetejére ugrás ikon -->
