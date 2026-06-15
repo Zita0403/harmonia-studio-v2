@@ -18,8 +18,8 @@ require_once __DIR__ . '/navigation.php';
 </head>
 <body>
 <!-- Lap tetejére ugrás ikon -->
-<button class="to-top">
-    <i class="fa-chevron-up"></i>
+<button class="to-top" aria-label="Az oldal tetejére ugrás.">
+    <i class="fa-chevron-up" aria-hidden="true"></i>
 </button>
 <!-- Elérhetőségek -->
 <div class="first-nav">
@@ -36,7 +36,7 @@ require_once __DIR__ . '/navigation.php';
 <!-- Az oldlal logo-ja -->
 <nav>
     <div class="logo-container-1">
-        <a href="<?= BASE_URL; ?>"><img src="<?= BASE_URL ?>assets/images/HS-logo.png" alt="Harmónia Stúdió logója"></a>
+        <a href="<?= BASE_URL; ?>"><img src="<?= BASE_URL ?>assets/images/HS-logo.png" alt="Harmónia Stúdió logója" aria-label="Vissza a főoldalra."></a>
         
     </div>
     <!-- Az oldal menüje -->
@@ -57,16 +57,16 @@ require_once __DIR__ . '/navigation.php';
         <?php endforeach; ?>
     </ul>   
     <!-- Mobil menü ikonok  -->
-    <div class="hamburger-menu">
-        <i class="fa-solid fa-bars"></i>
-    </div>
+    <button class="hamburger-menu" aria-label="Mobil menü megnyitása">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
     <!-- Mobil menü -->
     <ul class="hamburger-main-menu">
         <?php foreach ($navItems as $item): ?>
             <li class="<?= isActive($item['url']); ?>">
                 <a href="<?= BASE_URL . $item['url']; ?>"><?= $item['label']; ?>
                     <?php if (!empty($item['submenu'])): ?>
-                        <i class="fa-chevron-down toggle-submenu"></i>
+                        <i class="fa-chevron-down toggle-submenu" aria-hidden="true"></i>
                     <?php endif; ?>
                 </a>
                 <?php if (!empty($item['submenu'])): ?>

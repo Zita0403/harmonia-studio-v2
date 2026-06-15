@@ -8,8 +8,7 @@
             <a href="#"><img src="./assets/images/HS-logo.png" alt="Harmónia Stúdió logója"></a>
         </div>
             <h1>Harmónia Stúdió</h1>
-            <!-- <h3>Szeretettel üdvözöllek az oldalon!</h3> -->
-            <h3><?= e($welcome['content'] ?? 'Üdvözöllek az oldalon!'); ?></h3>
+            <h2><?= e($welcome['content'] ?? 'Üdvözöllek az oldalon!'); ?></h2>
         </div>
     <div class="salon-img-container second-salon-img-container">
     <!-- A szalont bemutató kép -->

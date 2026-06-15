@@ -10,15 +10,15 @@ require_once dirname(__DIR__) . '/constans/constans.php';
             </div>
             <div class="btns">
                 <div>
-                    <button class="btn accept">Az összes cookie engedélyezése</button>
-                    <button class="btn reject">Az összes cookie elutasítása</button>
+                    <button class="btn accept" aria-label="Az összes süti elfogadása.">Az összes cookie engedélyezése</button>
+                    <button class="btn reject" aria-label="Az összes süti elutasítása.">Az összes cookie elutasítása</button>
                 </div>
             </div>
     </div>
     <footer id="contact">
         <div class="footer-top">
             <div class="bottom-logo-container">
-                <a href="<?php BASE_URL; ?>"><img src="<?php echo BASE_URL . 'assets/images/HS-logo.png'; ?>" alt="Harmónia Stúdió logója"></a>
+                <a href="<?php BASE_URL; ?>" aria-label="Vissza a főoldalra."><img src="<?php echo BASE_URL . 'assets/images/HS-logo.png'; ?>" alt="Harmónia Stúdió logója"></a>
             </div>
             <div class="footer-navigation">
                 <h4>Elérhetőség</h4>
@@ -59,7 +59,7 @@ require_once dirname(__DIR__) . '/constans/constans.php';
             </div>
         </div>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2758.5771045272263!2d20.166039275805925!3d46.25863428008429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4744883e02a029df%3A0xed22b73477369d4!2sSzeged%2C%20Fels%C5%91%20Tisza-Part!5e0!3m2!1shu!2shu!4v1721307233808!5m2!1shu!2shu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2758.5771045272263!2d20.166039275805925!3d46.25863428008429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4744883e02a029df%3A0xed22b73477369d4!2sSzeged%2C%20Fels%C5%91%20Tisza-Part!5e0!3m2!1shu!2shu!4v1721307233808!5m2!1shu!2shu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fiktív Harmónia Stúdió elhelyezkedése Google Térképen"></iframe>
         </div>
         <div class="footer-bottom">
             <p>© <span id="current-year"></span> Harmónia Stúdió. All Right Reserved.</p>

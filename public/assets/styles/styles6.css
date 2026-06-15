@@ -551,6 +551,8 @@ body nav .main-menu {
   display: none;
 }
 body nav .hamburger-menu {
+  background: none;
+  border: none;
   display: block;
   margin-right: 20px;
 }
