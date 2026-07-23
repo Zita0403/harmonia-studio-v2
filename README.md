@@ -130,10 +130,10 @@ A projekt élőben is megtekinthető az alábbi linken: [Nézd meg élőben!](ht
 
 ---
 
-## Bejelentkezési adatok:
+<!-- ## Bejelentkezési adatok:
 
 - **Felhasználónév**: admin@example.com 
-- **Jelszó**: Admin!123
+- **Jelszó**: Admin!123 -->
 
 ---
 
