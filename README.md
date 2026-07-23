@@ -130,10 +130,12 @@ A projekt élőben is megtekinthető az alábbi linken: [Nézd meg élőben!](ht
 
 ---
 
-<!-- ## Bejelentkezési adatok:
+## Bejelentkezési adatok fejlesztői / lokális környezetben:
 
 - **Felhasználónév**: admin@example.com 
-- **Jelszó**: Admin!123 -->
+- **Jelszó**: Admin!123
+
+> *Megjegyzés: Éles környezetben (production) a biztonság érdekében ezek az adatok eltérnek; az éles adatbázis `login_data` táblájában egyedi, hashelt jelszó és a valós adminisztrátori e-mail cím van beállítva.*
 
 ---
 

@@ -134,10 +134,12 @@ Once the Virtual Host is configured, you can access the site locally:
 
 ---
 
-## Login Data:
+## Login details in developer / local environment:
 
 - **Username**: admin@example.com
 - **Password**: Admin!123
+
+> *Note: In a production environment, these credentials differ for security reasons; the production database `login_data` table contains a unique, hashed password and the actual administrator email address.*
 
 ---
 
