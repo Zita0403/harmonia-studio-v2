@@ -7,7 +7,7 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Arckezelések</th>
+                    <th scope="col" colspan="2">Arckezelések</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Testkezelések</th>
+                    <th scope="col" colspan="2">Testkezelések</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,7 +57,7 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Szőreltávolítás</th>
+                    <th scope="col" colspan="2">Szőreltávolítás</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,7 +74,7 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Sminkelés</th>
+                    <th scope="col" colspan="2">Sminkelés</th>
                 </tr>
             </thead>
             <tbody>

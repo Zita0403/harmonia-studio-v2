@@ -1,0 +1,19 @@
+{
+  "name": "harmonia-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:css": "stylelint \"public/assets/styles/**/*.scss\"",
+    "test:html": "html-validate \"app/includes/**/*.php\" \"app/admin/**/*.php\" \"public/pages/**/*.php\"",
+    "test:js": "vitest run",
+    "test:frontend": "npm run test:css && npm run test:html && npm run test:js"
+  },
+  "devDependencies": {
+    "html-validate": "^11.16.0",
+    "jsdom": "^29.1.1",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "vitest": "^5.0.1"
+  }
+}

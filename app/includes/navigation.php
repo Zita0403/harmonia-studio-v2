@@ -20,7 +20,7 @@ $navItems = [
     ['label' => 'Rólam', 'url' => '#about'],
     ['label' => 'Kapcsolat', 'url' => '#contact'],
     ['label' => 'Időpontfoglalás', 'url' => 'booking'],
-    ['label' => 'Admin', 'url' => 'login'],
+    ['label' => 'Admin', 'url' => 'admin'],
 ];
 
 // Aktuális oldal lekérése, ellenőrzés

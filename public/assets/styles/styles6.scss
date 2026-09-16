@@ -1,16 +1,16 @@
-/*Süti szabályzat stílusa*/
+/* Süti szabályzat stílusa */
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-
     main {
         grid-area: main-area;
-        background-color: $darkBg;
-        background-image: url(../images/facial-bg-1400x1200.jpg);
-        @include bgImg ();
+        background-color: $dark-bg;
+        background-image: url("../images/facial-bg-1400x1200.jpg");
         display: grid;
+
+        @include bg-img;
         
         div {
             margin: 0 40px;
@@ -19,67 +19,67 @@ body {
             background-color: #f0ca96b8;
 
             a {
-                @include text();
                 text-decoration: none;
+
+                @include text;
+
                 &:hover {
                     text-decoration: underline;
                 }
             }
             
             h1 {
-                @include mainTitle ();
                 text-align: center;
+
+                @include main-title;
             }
 
             h2 {
-                @include mainTitle ();
                 font-size: 20px;
                 text-align: center;
+
+                @include main-title;
             }
 
             p {
-                @include text();
+                @include text;
             }
 
             ul {
                 li {
-                    @include text();
+                    @include text;
                 }
             }
         }
     }
 }
 
-@media screen and (min-width:576px) {
+@media (width >= 576px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (width >= 768px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:992px) {
+@media screen and (width >= 992px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (width >= 1200px) {
     body {
-
         main {
             grid-area: main-area;
         }

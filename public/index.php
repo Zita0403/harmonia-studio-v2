@@ -1,7 +1,9 @@
 <?php
 ob_start();
-session_start();
+// session_start();
 require_once __DIR__ . '/../app/constans/constans.php';
+
+require_once ROOT_PATH . 'app/config/session.php';
 
 // URL feldolgozás
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -10,6 +12,13 @@ $path = str_replace($scriptName, '', $requestUri);
 $path = trim($path, '/');
 $path = preg_replace('/\.php$/', '', $path);
 $path = str_replace('pages/', '', $path);
+
+if ($path === 'refresh-session') {
+    // A session.php a fájl tetején már betöltődött, így a $_SESSION['last_activity'] frissült
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'success']);
+    exit;
+}
 
 if ($path === 'admin/admin') {
     $path = 'admin';
@@ -92,7 +101,7 @@ if ($error === null) {
 }
 
 // Admin védelem
-if ($path === 'admin' && !isset($_SESSION['user_id'])) {
+if ($path === 'admin' && !isset($_SESSION['user_id']) && !isset($_SESSION['admin_logged_in'])) {
     header("Location: " . BASE_URL . "login");
     exit;
 }

@@ -1,11 +1,10 @@
-<?php
+<?php 
+    require_once __DIR__ . '/../../app/constans/constans.php';
 
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../config/helper_functions.php';
-require_once __DIR__ . '/auth_functions.php';
-require_once __DIR__ . '/../config/admin_functions.php';
-require_once __DIR__ . '/../constans/constans.php';
-
+    if (isset($_SESSION['user_id'])) {
+        header("Location: " . BASE_URL . "admin");
+        exit;
+    }
 ?>
 <!-- Admin Login -->
 <header>

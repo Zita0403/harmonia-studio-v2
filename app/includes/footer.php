@@ -2,7 +2,15 @@
 require_once dirname(__DIR__) . '/constans/constans.php';
 ?>
 </main>
-<!-- Modal, demonstráció -->
+    <!-- Modal, alert -->
+    <div id="session-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h3>Munkamenet lejárata</h3>
+            <p>A munkameneted 2 percen belül lejár inaktivitás miatt.</p>
+            <button type="button" id="extend-session-btn" class="btn primary">Munkamenet meghosszabbítása</button>
+        </div>
+    </div>
+    <!-- Modal, cookie policy -->
     <div class="modal">
         <div></div>
             <div>           
@@ -10,8 +18,8 @@ require_once dirname(__DIR__) . '/constans/constans.php';
             </div>
             <div class="btns">
                 <div>
-                    <button class="btn accept" aria-label="Az összes süti elfogadása.">Az összes cookie engedélyezése</button>
-                    <button class="btn reject" aria-label="Az összes süti elutasítása.">Az összes cookie elutasítása</button>
+                    <button type="button" class="btn accept" aria-label="Az összes süti elfogadása.">Az összes cookie engedélyezése</button>
+                    <button type="button" class="btn reject" aria-label="Az összes süti elutasítása.">Az összes cookie elutasítása</button>
                 </div>
             </div>
     </div>
@@ -58,13 +66,11 @@ require_once dirname(__DIR__) . '/constans/constans.php';
                 </div>
             </div>
         </div>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2758.5771045272263!2d20.166039275805925!3d46.25863428008429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4744883e02a029df%3A0xed22b73477369d4!2sSzeged%2C%20Fels%C5%91%20Tisza-Part!5e0!3m2!1shu!2shu!4v1721307233808!5m2!1shu!2shu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fiktív Harmónia Stúdió elhelyezkedése Google Térképen"></iframe>
-        </div>
+        <!-- <div class="map"></div> -->
         <div class="footer-bottom">
-            <p>© <span id="current-year"></span> Harmónia Stúdió. All Right Reserved.</p>
+            <p>© 2024–<span id="current-year"></span> Harmónia Stúdió. Minden jog fenntartva.</p>
         </div>
     </footer>
-    <script src="<?= BASE_URL; ?>assets/js/scripts.js" defer></script>
+    <script type="module" src="<?= BASE_URL; ?>assets/js/scripts.js" defer></script>
 </body>
 </html>

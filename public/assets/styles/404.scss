@@ -14,8 +14,6 @@ body {
     justify-content: center;
     min-height: 100vh;
 
-
-
     .error-wrapper {
         display: flex;
         flex-direction: column;
@@ -24,7 +22,7 @@ body {
         color: #4e3b2b;
         font-family: "Noto Serif Display", serif;
         padding: 20px;
-        background: rgba(240, 202, 150, 0.627); 
+        background: rgb(240 202 150 / 62.7%); 
         border-radius: 10px;
 
         h1 {

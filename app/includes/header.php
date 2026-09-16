@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/session.php';
 require_once __DIR__ . '/../constans/constans.php';
 require_once __DIR__ . '/navigation.php';
 ?>
@@ -17,7 +18,7 @@ require_once __DIR__ . '/navigation.php';
 </head>
 <body>
 <!-- Lap tetejére ugrás ikon -->
-<button class="to-top" aria-label="Az oldal tetejére ugrás.">
+<button type="button" class="to-top" aria-label="Az oldal tetejére ugrás.">
     <i class="fa-chevron-up" aria-hidden="true"></i>
 </button>
 <!-- Elérhetőségek -->
@@ -33,7 +34,7 @@ require_once __DIR__ . '/navigation.php';
     </div>
 </div>
 <!-- Az oldlal logo-ja -->
-<nav>
+<nav aria-label="Főnavigáció">
     <div class="logo-container-1">
         <a href="<?= BASE_URL; ?>"><img src="<?= BASE_URL ?>assets/images/HS-logo.png" alt="Harmónia Stúdió logója" aria-label="Vissza a főoldalra."></a>
         
@@ -56,7 +57,7 @@ require_once __DIR__ . '/navigation.php';
         <?php endforeach; ?>
     </ul>   
     <!-- Mobil menü ikonok  -->
-    <button class="hamburger-menu" aria-label="Mobil menü megnyitása">
+    <button type="button" class="hamburger-menu" aria-label="Mobil menü megnyitása">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
     <!-- Mobil menü -->
