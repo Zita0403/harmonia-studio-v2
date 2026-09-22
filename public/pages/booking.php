@@ -35,6 +35,4 @@
     </div>
     <input type="submit" value="Küldés" class="btn click hover-effect">
 </form>
-<div class=" button hover-effect">
-    <a href="<?= BASE_URL . 'home'; ?>">Vissza a főoldalra</a>
-</div>
+<a class="button hover-effect" href="<?= BASE_URL . 'home'; ?>">Vissza a főoldalra</a>

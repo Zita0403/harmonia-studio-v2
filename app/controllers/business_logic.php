@@ -1,129 +1,189 @@
 <?php
+
 require_once __DIR__ . '/../config/argument.php';
 require_once __DIR__ . '/../config/treatment.php';
+
 /**
  * Az engedélyezett szekciónevek listájának lekérése.
- *
- * @return array Az engedélyezett szekciók nevei.
  */
 function getAllowedSections(): array {
     return ['welcome', 'about', 'argument_section'];
 }
+
 /**
  * Az admin oldal POST kéréseinek kezelése.
- *
- * @param array $post POST adatok.
- * @param array $files FILES adatok.
  */
 function handleAdminPostRequests(array $post, array $files): void {
     $action = $post['action'] ?? null;
 
-    // Ha nincs action, de van section_name, akkor szekció tartalom frissítés
     if (!$action && isset($post['section_name'])) {
-        $allowedSections = getAllowedSections();
-        $sectionName = $post['section_name'];
-        $content = $post['content'] ?? '';
-
-        if (!in_array($sectionName, $allowedSections, true)) {
-            logError("Érvénytelen szekciónév: $sectionName", true);
-            return;
-        }
-
-        if ($content) {
-            updateSectionContent($sectionName, $content);
-        }
+        processSectionUpdate($post);
         return;
     }
-    // Az engedélyezett műveletek listája
-    $allowedActions = [
-        'update_argument',
-        'delete_argument',
-        'add_argument',
-        'add_treatment',
-        'update_treatment',
-        'delete_treatment',
-    ];
 
-    // Ellenőrzés, hogy az action engedélyezett-e
-    if (!in_array($action, $allowedActions, true)) {
-        logError("Ismeretlen művelet: $action", true);
+    if (!$action) {
+        logErrorAndDisplay("Nincs megadva művelet.");
         return;
     }
+
+    processAdminAction($action, $post, $files);
+}
+
+/**
+ * Szekció tartalom frissítésének feldolgozása.
+ */
+function processSectionUpdate(array $post): void {
+    $allowedSections = getAllowedSections();
+    $sectionName = $post['section_name'];
+    $content = $post['content'] ?? '';
+
+    if (!in_array($sectionName, $allowedSections, true)) {
+        logErrorAndDisplay("Érvénytelen szekciónév: $sectionName");
+        return;
+    }
+
+    if ($content) {
+        updateSectionContent($sectionName, $content);
+    }
+}
+
+/**
+ * Konkrét admin műveletek futtatása (csökkentett komplexitás).
+ */
+function processAdminAction(string $action, array $post, array $files): void {
     try {
-        // Az action értéke alapján végrehajtandó műveletek
-        switch ($action) {
-            case 'update_argument':
-                $id = validateId($post['id']);
-                updateArgument($id, $post['content'] ?? '');
-                break;
-
-            case 'delete_argument':
-                $id = validateId($post['id']);
-                deleteArgument($id);
-                break;
-
-            case 'add_argument':
-                addArgument($post['content'] ?? '', 2);
-                break;
-
-            case 'add_treatment':
-                $categoryId = isset($post['category_id']) && is_numeric($post['category_id']) ? (int)$post['category_id'] : null;
-                validateImage($files['image']);
-                addTreatment($post['title'] ?? '', $post['description'] ?? '', $files['image'], $categoryId);
-                break;
-
-            case 'update_treatment':
-                $id = validateId($post['id']);
-                $categoryId = isset($post['category_id']) && is_numeric($post['category_id']) ? (int)$post['category_id'] : null;
-                validateImage($files['image'], true);
-                updateTreatment($id, $post['title'] ?? '', $post['description'] ?? '', $files['image'] ?? null, $categoryId);
-                break;
-
-            case 'delete_treatment':
-                $id = validateId($post['id']);
-                deleteTreatment($id);
-                break;
-        }
+        match ($action) {
+            'update_argument'  => handleUpdateArgument($post),
+            'delete_argument'  => handleDeleteArgument($post),
+            'add_argument'     => addArgument($post['content'] ?? '', 2),
+            'add_treatment'    => handleAddTreatment($post, $files),
+            'update_treatment' => handleUpdateTreatment($post, $files),
+            'delete_treatment' => handleDeleteTreatment($post),
+            default            => logErrorAndDisplay("Ismeretlen művelet: $action"),
+        };
     } catch (InvalidArgumentException $e) {
-        logError("Hibás adat: " . $e->getMessage(), true);
+        logErrorAndDisplay("Hibás adat: " . $e->getMessage());
     } catch (Exception $e) {
-        logError("Váratlan hiba: " . $e->getMessage(), true);
+        logErrorAndDisplay("Váratlan hiba: " . $e->getMessage());
     }
 }
+
+function handleUpdateArgument(array $post): void {
+    $argumentId = validateRecordId($post['id'] ?? null);
+    updateArgument($argumentId, $post['content'] ?? '');
+}
+
+function handleDeleteArgument(array $post): void {
+    $argumentId = validateRecordId($post['id'] ?? null);
+    deleteArgument($argumentId);
+}
+
+function handleAddTreatment(array $post, array $files): void {
+    $categoryId = parseCategoryId($post['category_id'] ?? null);
+    validateRequiredImage($files['image'] ?? []);
+    addTreatment($post['title'] ?? '', $post['description'] ?? '', $files['image'], $categoryId);
+}
+
+function handleUpdateTreatment(array $post, array $files): void {
+    $treatmentId = validateRecordId($post['id'] ?? null);
+    $categoryId = parseCategoryId($post['category_id'] ?? null);
+    validateOptionalImage($files['image'] ?? []);
+    updateTreatment($treatmentId, $post['title'] ?? '', $post['description'] ?? '', $files['image'] ?? null, $categoryId);
+}
+
+function handleDeleteTreatment(array $post): void {
+    $treatmentId = validateRecordId($post['id'] ?? null);
+    deleteTreatment($treatmentId);
+}
+
+function parseCategoryId(mixed $rawCategoryId): ?int {
+    return isset($rawCategoryId) && is_numeric($rawCategoryId) ? (int)$rawCategoryId : null;
+}
+
 /**
- * Hibaüzenet naplózása és megjelenítése.
+ * Hibaüzenet naplózása a rendszernaplóba.
  */
-function logError(string $message, bool $showToUser = false): void {
+function logSystemError(string $message): void {
     error_log($message);
-    if ($showToUser) {
-        echo "Hiba történt. Kérjük, próbálja újra.";
-    }
 }
+
 /**
- * Érvényes ID ellenőrzése.
+ * Hibaüzenet naplózása és megjelenítése a felhasználónak.
  */
-function validateId($id): int {
-    $validId = filter_var($id, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1]]);
+function logErrorAndDisplay(string $message): void {
+    logSystemError($message);
+    echo "Hiba történt. Kérjük, próbálja újra.";
+}
+
+/**
+ * Érvényes rekord ID ellenőrzése.
+ */
+function validateRecordId(mixed $rawId): int {
+    $validId = filter_var($rawId, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1]]);
     if (!$validId) {
-        throw new InvalidArgumentException("Érvénytelen ID: $id");
+        throw new InvalidArgumentException("Érvénytelen ID: $rawId");
     }
     return $validId;
 }
+
 /**
- * Fájl érvényességének ellenőrzése.
+ * Kötelező képfájl ellenőrzése.
  */
-function validateImage(array $file, bool $optional = false): void {
-    if ($optional && empty($file['tmp_name'])) {
-        return;
-    }
+function validateRequiredImage(array $file): void {
     if (empty($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])) {
         throw new InvalidArgumentException("Nincs érvényes kép feltöltve.");
     }
-    $allowedMimeTypes = ['image/jpeg', 'image/png'];
-    $fileInfo = new finfo(FILEINFO_MIME_TYPE);
-    $fileType = $fileInfo->file($file['tmp_name']);
+    checkImageMimeType($file['tmp_name']);
+}
+
+/**
+ * Opcionális képfájl ellenőrzése.
+ */
+function validateOptionalImage(array $file): void {
+    if (empty($file['tmp_name'])) {
+        return;
+    }
+    if (!is_uploaded_file($file['tmp_name'])) {
+        throw new InvalidArgumentException("A feltöltött fájl érvénytelen.");
+    }
+    checkImageMimeType($file['tmp_name']);
+}
+
+/**
+ * MIME típus ellenőrzése finfo példányosítással (use finfo kivezetve).
+ */
+function checkImageMimeType(string $filePath): void {
+    $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    $fileType = null;
+
+    if (class_exists('finfo')) {
+        $fileInfo = new \finfo(FILEINFO_MIME_TYPE);
+        $fileType = $fileInfo->file($filePath);
+    }
+
+    elseif (function_exists('mime_content_type')) {
+        $fileType = mime_content_type($filePath);
+    }
+
+    elseif (function_exists('getimagesize')) {
+        $imageInfo = @getimagesize($filePath);
+        if ($imageInfo && isset($imageInfo['mime'])) {
+            $fileType = $imageInfo['mime'];
+        }
+    }
+
+    if (!$fileType) {
+        $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+        $extensionMap = [
+            'jpg'  => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'png'  => 'image/png',
+            'webp' => 'image/webp'
+        ];
+        $fileType = $extensionMap[$ext] ?? null;
+    }
 
     if (!in_array($fileType, $allowedMimeTypes, true)) {
-        throw new InvalidArgumentException("Csak JPEG és PNG fájlok engedélyezettek.");
+        throw new InvalidArgumentException("Csak JPEG, PNG és WebP fájlok engedélyezettek.");
     }
 }

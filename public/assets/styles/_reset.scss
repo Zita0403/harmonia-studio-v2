@@ -190,7 +190,7 @@ body {
         .hamburger-menu {
             background: none;
             border: none;
-            display: block;
+            display: flex;
             margin-right: 20px;
 
             .fa-bars,
@@ -231,44 +231,67 @@ body {
         }
 
         .hamburger-main-menu {
-            padding: 0;
+            padding: 20px 0;
             margin: 0;
             position: absolute;
             top: 65px;
             left: 0;
             width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
             display: none;
             background-color: #4e3b2b67;
             backdrop-filter: blur(5px);
                 
-            li {
-                text-align: start;
+            > li {
+                height: auto;
+                min-height: 3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
                 position: relative;
-                padding-left: 20px;
-            }
 
-            li a {
-                font-size: 0.9rem;
-                display: block;
-                padding: 10px;
+                a, .submenu-trigger {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    gap: 8px;
+                    padding: 8px 16px;
+                    transition: all 0.2s ease-in-out;
 
-                @include nav;
+                    @include nav;
 
-                .fa-chevron-down {
-                    display: inline-block;
-                    width: 24px;
-                    height: 24px;
-                    background-image: url("../webfonts/chevron-down-solid-full.svg");
-                    background-size: contain;    
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    vertical-align: middle;      
-                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
-                    padding-left: 10px;
+                    .menu-title {
+                        cursor: pointer;
+                    }
+
+                    .fa-chevron-down {
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        background-image: url("../webfonts/chevron-down-solid-full.svg");
+                        background-size: contain;    
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;      
+                        filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                        padding-left: 10px;
+                    }
                 }
             }
 
-            > li:hover > a {
+            > li.open {
+                .hamburger-submenu {
+                    display: flex;
+                }
+            }
+
+            a:hover,
+            .submenu-trigger:hover {
                 color: bisque;
                 transition: all 0.2s ease-in-out;
 
@@ -279,35 +302,39 @@ body {
             }
     
             .hamburger-submenu {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                z-index: 100;
-                width: auto;
+                width: 100%;
                 display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                position: static;
+                margin: 5px 0 10px 0;
+                padding: 8px 0;
+                background-color: rgba(0, 0, 0, 0.25); 
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-                > li:hover > a {
-                    color: bisque;
-                    transition: all 0.2s ease-in-out;
+                > li {
+                    height: auto;
+                    margin: 3px 0;
+
+                    > a {
+                        font-size: 0.9rem;
+                        padding: 6px 12px;
+                        text-decoration: none;
+                        
+                        @include nav;
+                        
+                        &:hover {
+                            color: bisque;
+                        }
+                    }
                 }
             }
-
-                .fa-chevron-down {
-                    display: inline-block;
-                    width: 24px;
-                    height: 24px;
-                    background-image: url("../webfonts/chevron-down-solid-full.svg");
-                    background-size: contain;    
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    vertical-align: middle;      
-                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
-                    padding-left: 10px;
-                }
         }
 
         .hamburger-main-menu.open {
-            display: block;
+            display: flex;
         }
     }
 
@@ -401,8 +428,10 @@ body {
         .footer-top {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 30px 0;
+            gap: 2rem;
+            padding: 30px 15px 60px;
+            text-align: center;
+            place-items: center;
 
             .bottom-logo-container {
                 width: 100px;
@@ -416,7 +445,18 @@ body {
             }
 
             .footer-navigation {
-                place-self: start center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 400px;
+
+                h4, div, p {
+                    text-align: center;
+                    width: 100%;
+                }
 
                 h4 {
                     text-align: start;
@@ -438,7 +478,9 @@ body {
 
                 .brands-icons {
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: flex-start;
+                    gap: 1rem;
+                    width: 100%;
 
                     i {
                         display: inline-block;
@@ -569,10 +611,6 @@ body {
                 a {
                     font-size: 1rem;
                 }
-
-                .hamburger-submenu {
-                    left: 60%;
-                }
             }
 
         footer {
@@ -636,6 +674,7 @@ body {
 
             .footer-top {
                 grid-template-columns: 1fr 1fr;
+                place-items: start center;
     
                 .bottom-logo-container {
                     width: 200px;
@@ -693,8 +732,10 @@ body {
             grid-area: footer-area;
     
             .footer-top {
-                grid-template-columns: 1fr 1fr;
-    
+                grid-template-columns: repeat(4, 1fr);
+                padding: 40px 20px;
+                align-items: start;  
+
                 .bottom-logo-container {
                     width: 250px;
                     height: 230px;
@@ -705,6 +746,13 @@ body {
                 }
     
                 .footer-navigation {
+                    align-items: flex-start;
+                    justify-content: flex-start;
+
+                    h4, div, p {
+                        text-align: left;
+                    }
+
                     h4 {
                         font-size: 20px;
                     }
@@ -713,6 +761,10 @@ body {
                         li {
                             font-size: 14px;
                         }
+                    }
+
+                    .brands-icons {
+                        justify-content: flex-start;
                     }
                 }
 
@@ -829,15 +881,8 @@ body {
 
         footer {
             grid-area: footer-area;
-            display: grid;
 
             .footer-top {
-                display: flex;
-                justify-content: space-around;
-                align-items: flex-start;
-                justify-self: auto;
-                padding: 30px 0;
-   
                 .bottom-logo-container {
                     width: 300px;
                     height: 280px;

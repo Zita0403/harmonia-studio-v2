@@ -6,22 +6,35 @@
 body {
     main {
         grid-area: main-area;
+        grid-template-columns: minmax(0, 1fr);
         background-color: $dark-bg;
-        background-image: url("../images/booking-bg.jpg");
+        background-image: url("../images/booking-bg.webp");
         display: grid;
+        place-content: center;
+        place-items: center;
+        gap: 20px;
+        padding: 40px 0;
 
         @include bg-img;
+
+        header, form, button.button {
+            display: flex;
+            width: min(100%, 300px);
+            justify-self: center;
+        }
         
         header {
-            margin: 0 40px;
-            padding: 1em;
-            max-width: 400px;
+            display: flex;
+            height: 120px;
+            align-items: center;
             
             h1 {
                 text-align: center;
                 background-color: $light-bg-blur;
                 border-radius: 20px;
                 border: 1px solid $light-bg;
+                padding: 0.5rem;
+                width: 100%;
 
                 @include main-title;
             }
@@ -36,13 +49,12 @@ body {
 
         form {
             font-size: 1rem;
-            max-width: 400px;
-            margin: 0 40px;
-            margin-bottom: 2em;
             padding: 1em;
             border: 1px solid $light-bg;
             background-color: $light-bg-blur;
             border-radius: 20px;
+            align-self: center;
+            flex-direction: column;
 
             @include text;
 
@@ -87,24 +99,18 @@ body {
         }
 
         .button {
-            max-width: 400px;
-            margin: 40px;
+            width: 300px;
             padding: 0.7em;
             background-color: $primary;
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-decoration: none;
+            font-size: 1rem;
 
-            a {
-                text-decoration: none;
-                font-size: 1rem;
-                text-align: center;
+            @include text;
 
-                @include text;
-            }
+            text-align: center;
         }
 
         .hover-effect {
@@ -143,6 +149,10 @@ body {
     body {
         main {
             grid-area: main-area;
+
+            header, form, .button {
+                width: min(100%, 400px);
+            }
         }
     }
 }
@@ -151,6 +161,11 @@ body {
     body {
         main {
             grid-area: main-area;
+            padding: 40px;
+
+            header, form, .button {
+                justify-self: flex-start;
+            }
         }
     }
 }

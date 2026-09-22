@@ -8,7 +8,7 @@
         A nappali smink célja, hogy kiemelje természetes szépségét, miközben friss és üde megjelenést kölcsönöz.
     </p>
     <div>
-        <img src="<?php print BASE_URL . 'assets/images/nappali-smink.jpg'; ?>" alt="Nappali smink">
+        <img src="<?php print BASE_URL . 'assets/images/nappali-smink.webp'; ?>" alt="Nappali smink">
     </div>
 </section>
 <section>
@@ -17,7 +17,7 @@
         Az alkalmi smink az ünnepi alkalmak sminkje, amely merészebb lehet a nappali sminkhez képest. Célja, hogy kiemelje a vonásait, és magabiztosabbnak érezze magát.
     </p>
     <div>
-        <img src="<?php print BASE_URL . 'assets/images/alkalmi-smink.jpg'; ?>" alt="Alkalmi smink">
+        <img src="<?php print BASE_URL . 'assets/images/alkalmi-smink.webp'; ?>" alt="Alkalmi smink">
     </div>
 </section>
 <section>
@@ -26,6 +26,6 @@
         A menyasszonyi sminknek tökéletesnek kell lennie a nagy napon. Kiemelve a menyasszony természetes szépségét, magabiztosabbá kell tennie őt, és egész nap tartósnak kell lennie. A nagy nap előtt lehetőség van próba sminkelésre.
     </p>
     <div>
-        <img src="<?php print BASE_URL . 'assets/images/menyasszonyi-smink.jpg'; ?>" alt="Menyasszonyi smink">
+        <img src="<?php print BASE_URL . 'assets/images/menyasszonyi-smink.webp'; ?>" alt="Menyasszonyi smink">
     </div>
 </section>

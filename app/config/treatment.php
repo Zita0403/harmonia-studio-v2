@@ -56,6 +56,52 @@ function getHighlightedTreatments(): array {
 }
 
 /**
+ * Segédfüggvény a kép mozgatásához a helyes target könyvtárba.
+ */
+function uploadTreatmentImage(array $image): string {
+    if (empty($image['tmp_name']) || $image['error'] !== UPLOAD_ERR_OK) {
+        error_log("Érvénytelen képfájl.");
+    }
+
+    // 1. Dinamikus kiterjesztés meghatározása (.webp, .jpg, .png stb.)
+    $pathInfo = pathinfo($image['name']);
+    $extension = strtolower($pathInfo['extension'] ?? 'webp');
+    $rawFilename = $pathInfo['filename'];
+    $cleanFilename = preg_replace('/[^a-zA-Z0-9_-]/', '_', $rawFilename);
+
+    if (empty($cleanFilename)) {
+        $cleanFilename = 'image_' . time();
+    }
+
+    $imageName = $cleanFilename . '.' . $extension;
+
+    // 2. Pontos célútvonal a public/assets/images könyvtárba
+    $targetDir = realpath(__DIR__ . '/../../public/assets/images');
+
+    if (!$targetDir) {
+        // Fallback: Ha nincs külön public mappa
+        $targetDir = realpath(__DIR__ . '/../../assets/images');
+    }
+
+    if (!$targetDir) {
+        // Ha még nem létezik, automatikusan létrehozzuk
+        $targetDir = __DIR__ . '/../../public/assets/images';
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
+    }
+
+    $fullDestination = $targetDir . DIRECTORY_SEPARATOR . $imageName;
+
+    // 3. Fájl mozgatása a végső helyére
+    if (!move_uploaded_file($image['tmp_name'], $fullDestination)) {
+        error_log("Nem sikerült áthelyezni a képet ide: " . $fullDestination);
+    }
+
+    return $imageName;
+}
+
+/**
  * Új kezelés hozzáadása kategóriával.
  *
  * @param string $title Kezelés neve.
@@ -67,8 +113,7 @@ function addTreatment(string $title, string $description, array $image, ?int $ca
     $pdo = getDbConnection();
     
     // Kép feldolgozása
-    $imagePath = 'treatment_' . time() . '.jpg';
-    move_uploaded_file($image['tmp_name'], __DIR__ . "/../assets/images/$imagePath");
+    $imagePath = uploadTreatmentImage($image);  
 
     $stmt = $pdo->prepare("INSERT INTO highlighted_treatment (title, description, image_path, category_id) VALUES (?, ?, ?, ?)");
     $stmt->execute([$title, $description, $imagePath, $categoryId]);
@@ -85,9 +130,8 @@ function updateTreatment(int $id, string $title, string $description, ?array $im
     $pdo = getDbConnection();
     $imagePath = null;
 
-    if ($image && $image['tmp_name']) {
-        $imagePath = 'treatment_' . time() . '.jpg';
-        move_uploaded_file($image['tmp_name'], __DIR__ . "/../assets/images/$imagePath");
+    if ($image && !empty($image['tmp_name']) && $image['error'] === UPLOAD_ERR_OK) {
+        $imagePath = uploadTreatmentImage($image);
     }
 
     $query = "UPDATE highlighted_treatment SET title = ?, description = ?, category_id = ?";

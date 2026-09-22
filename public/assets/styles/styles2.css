@@ -553,7 +553,7 @@ body nav .main-menu {
 body nav .hamburger-menu {
   background: none;
   border: none;
-  display: block;
+  display: flex;
   margin-right: 20px;
 }
 body nav .hamburger-menu .fa-bars,
@@ -587,32 +587,47 @@ body nav .hamburger-menu.open .fa-times {
   display: block;
 }
 body nav .hamburger-main-menu {
-  padding: 0;
+  padding: 20px 0;
   margin: 0;
   position: absolute;
   top: 65px;
   left: 0;
   width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
   display: none;
   background-color: rgba(78, 59, 43, 0.4039215686);
   backdrop-filter: blur(5px);
 }
-body nav .hamburger-main-menu li {
-  text-align: start;
+body nav .hamburger-main-menu > li {
+  height: auto;
+  min-height: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   position: relative;
-  padding-left: 20px;
 }
-body nav .hamburger-main-menu li a {
-  font-size: 0.9rem;
-  display: block;
-  padding: 10px;
+body nav .hamburger-main-menu > li a, body nav .hamburger-main-menu > li .submenu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 8px;
+  padding: 8px 16px;
+  transition: all 0.2s ease-in-out;
   font-family: "Noto Serif Display", serif;
   font-weight: 400;
   font-style: normal;
   color: black;
   font-size: 18px;
 }
-body nav .hamburger-main-menu li a .fa-chevron-down {
+body nav .hamburger-main-menu > li a .menu-title, body nav .hamburger-main-menu > li .submenu-trigger .menu-title {
+  cursor: pointer;
+}
+body nav .hamburger-main-menu > li a .fa-chevron-down, body nav .hamburger-main-menu > li .submenu-trigger .fa-chevron-down {
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -624,40 +639,51 @@ body nav .hamburger-main-menu li a .fa-chevron-down {
   filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
   padding-left: 10px;
 }
-body nav .hamburger-main-menu > li:hover > a {
+body nav .hamburger-main-menu > li.open .hamburger-submenu {
+  display: flex;
+}
+body nav .hamburger-main-menu a:hover,
+body nav .hamburger-main-menu .submenu-trigger:hover {
   color: bisque;
   transition: all 0.2s ease-in-out;
 }
-body nav .hamburger-main-menu > li:hover > a .fa-chevron-down {
+body nav .hamburger-main-menu a:hover .fa-chevron-down,
+body nav .hamburger-main-menu .submenu-trigger:hover .fa-chevron-down {
   filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
   transition: all 0.2s ease-in-out;
 }
 body nav .hamburger-main-menu .hamburger-submenu {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 100;
-  width: auto;
+  width: 100%;
   display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: static;
+  margin: 5px 0 10px 0;
+  padding: 8px 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-body nav .hamburger-main-menu .hamburger-submenu > li:hover > a {
+body nav .hamburger-main-menu .hamburger-submenu > li {
+  height: auto;
+  margin: 3px 0;
+}
+body nav .hamburger-main-menu .hamburger-submenu > li > a {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-family: "Noto Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  font-size: 18px;
+}
+body nav .hamburger-main-menu .hamburger-submenu > li > a:hover {
   color: bisque;
-  transition: all 0.2s ease-in-out;
-}
-body nav .hamburger-main-menu .fa-chevron-down {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-image: url("../webfonts/chevron-down-solid-full.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  vertical-align: middle;
-  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
-  padding-left: 10px;
 }
 body nav .hamburger-main-menu.open {
-  display: block;
+  display: flex;
 }
 body #session-modal {
   position: fixed;
@@ -760,8 +786,10 @@ body footer {
 body footer .footer-top {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  padding: 30px 0;
+  gap: 2rem;
+  padding: 30px 15px 60px;
+  text-align: center;
+  place-items: center;
 }
 body footer .footer-top .bottom-logo-container {
   width: 100px;
@@ -773,7 +801,17 @@ body footer .footer-top .bottom-logo-container img {
   width: 100%;
 }
 body footer .footer-top .footer-navigation {
-  place-self: start center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+body footer .footer-top .footer-navigation h4, body footer .footer-top .footer-navigation div, body footer .footer-top .footer-navigation p {
+  text-align: center;
+  width: 100%;
 }
 body footer .footer-top .footer-navigation h4 {
   text-align: start;
@@ -800,7 +838,9 @@ body footer .footer-top .footer-navigation ul li {
 }
 body footer .footer-top .footer-navigation .brands-icons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
 }
 body footer .footer-top .footer-navigation .brands-icons i {
   display: inline-block;
@@ -912,9 +952,6 @@ body footer .footer-bottom p {
   body nav .hamburger-main-menu a {
     font-size: 1rem;
   }
-  body nav .hamburger-main-menu .hamburger-submenu {
-    left: 60%;
-  }
   body nav footer {
     grid-area: footer-area;
   }
@@ -957,6 +994,7 @@ body footer .footer-bottom p {
   }
   body footer .footer-top {
     grid-template-columns: 1fr 1fr;
+    place-items: start center;
   }
   body footer .footer-top .bottom-logo-container {
     width: 200px;
@@ -993,7 +1031,9 @@ body footer .footer-bottom p {
     grid-area: footer-area;
   }
   body footer .footer-top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 20px;
+    align-items: start;
   }
   body footer .footer-top .bottom-logo-container {
     width: 250px;
@@ -1002,11 +1042,21 @@ body footer .footer-bottom p {
   body footer .footer-top .bottom-logo-container img {
     width: 100%;
   }
+  body footer .footer-top .footer-navigation {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  body footer .footer-top .footer-navigation h4, body footer .footer-top .footer-navigation div, body footer .footer-top .footer-navigation p {
+    text-align: left;
+  }
   body footer .footer-top .footer-navigation h4 {
     font-size: 20px;
   }
   body footer .footer-top .footer-navigation ul li {
     font-size: 14px;
+  }
+  body footer .footer-top .footer-navigation .brands-icons {
+    justify-content: flex-start;
   }
   body footer .footer-top .footer-navigation:hover {
     cursor: pointer;
@@ -1095,14 +1145,6 @@ body footer .footer-bottom p {
   }
   body footer {
     grid-area: footer-area;
-    display: grid;
-  }
-  body footer .footer-top {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    justify-self: auto;
-    padding: 30px 0;
   }
   body footer .footer-top .bottom-logo-container {
     width: 300px;
@@ -1127,7 +1169,7 @@ body footer .footer-bottom p {
 body main {
   padding: 40px 0;
   grid-area: main-area;
-  background-image: url("../images/facial-bg-1400x1400.jpg");
+  background-image: url("../images/facial-bg-1400x1400.webp");
   display: flex;
   flex-direction: column;
   justify-content: space-between;

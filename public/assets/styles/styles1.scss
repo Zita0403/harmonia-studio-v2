@@ -7,7 +7,7 @@ body {
     header {
         grid-area: header-area;
         background-color: $light-bg;
-        background-image: url("../images/header-xs.jpg");
+        background-image: url("../images/header-xs.webp");
         height: 300px;
 
         @include bg-img;
@@ -34,14 +34,14 @@ body {
 
             .first-salon-img-container {
                 border-radius: 180px 180px 0 0;
-                background-image: url("../images/salon-img-1-lg.jpg");
+                background-image: url("../images/salon-img-1-lg.webp");
 
                 @include bg-img;
             }
 
             .second-salon-img-container {
                 border-radius: 0 0 180px 180px;
-                background-image: url("../images/salon-img-2-lg.jpg");
+                background-image: url("../images/salon-img-2-lg.webp");
 
                 @include bg-img;
             }
@@ -79,7 +79,7 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url("../images/second-section-bg-xs.jpg");
+            background-image: url("../images/second-section-bg-xs.webp");
 
             @include bg-img;
 
@@ -188,7 +188,7 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url("../images/fourth-section-bg-xs.jpg");
+            background-image: url("../images/fourth-section-bg-xs.webp");
 
             @include bg-img;
 
@@ -265,7 +265,7 @@ body {
                     width: 200px;
                     height: 200px;
                     border-radius: 50%;
-                    background-image: url("../images/profile.jpg");
+                    background-image: url("../images/profile.webp");
                     box-shadow: 25px 15px 10px $dark-bg;
 
                     @include bg-img;
@@ -288,7 +288,7 @@ body {
     body {
         header {
             grid-area: header-area;
-            background-image: url("../images/header-sm.jpg");
+            background-image: url("../images/header-sm.webp");
             height: 400px;
         }
 
@@ -318,7 +318,7 @@ body {
 
             .second-section {
                 padding: 60px 0;
-                background-image: url("../images/second-section-bg-sm.jpg");
+                background-image: url("../images/second-section-bg-sm.webp");
     
                 > div {
                     padding: 40px 20px;
@@ -356,7 +356,7 @@ body {
             }
 
             .fourth-section {
-                background-image: url("../images/fourth-section-bg-sm.jpg");
+                background-image: url("../images/fourth-section-bg-sm.webp");
     
                 > div {
                     .services {
@@ -395,7 +395,7 @@ body {
     body {
         header {
             grid-area: header-area;
-            background-image: url("../images/header-md.jpg");
+            background-image: url("../images/header-md.webp");
             height: 400px;
         }
 
@@ -429,7 +429,7 @@ body {
             }
 
             .second-section {
-                background-image: url("../images/second-section-bg-md.jpg");
+                background-image: url("../images/second-section-bg-md.webp");
 
                 > div {
                     padding: 50px 20px;
@@ -446,7 +446,7 @@ body {
             }
 
             .fourth-section {
-                background-image: url("../images/fourth-section-bg-sm.jpg");
+                background-image: url("../images/fourth-section-bg-md.webp");
 
                 > div {
                     .services {
@@ -485,7 +485,7 @@ body {
     body {
         header {
             grid-area: header-area;
-            background-image: url("../images/header-lg.jpg");
+            background-image: url("../images/header-lg.webp");
             height: 500px;
         }
 
@@ -528,7 +528,7 @@ body {
             }
 
             .second-section {
-                background-image: url("../images/second-section-bg-lg.jpg");
+                background-image: url("../images/second-section-bg-lg.webp");
     
                 > div {
                     padding: 60px 0;
@@ -572,7 +572,7 @@ body {
             }
 
             .fourth-section {
-                background-image: url("../images/fourth-section-bg-lg.jpg");
+                background-image: url("../images/fourth-section-bg-lg.webp");
 
                 > div {
                     h2 {
@@ -626,7 +626,7 @@ body {
     body {
         header {
             grid-area: header-area;
-            background-image: url("../images/header-xl.jpg");
+            background-image: url("../images/header-xl.webp");
             height: 600px;
 
             @include bg-img;
@@ -675,7 +675,7 @@ body {
             }
 
             .second-section {
-                background-image: url("../images/second-section-bg-xl.jpg");
+                background-image: url("../images/second-section-bg-xl.webp");
                 padding: 100px 0;
 
                 > div {
@@ -717,7 +717,7 @@ body {
             }
 
             .fourth-section {
-                background-image: url("../images/fourth-section-bg-xl.jpg");
+                background-image: url("../images/fourth-section-bg-xl.webp");
 
                 > div {
                     padding: 50px;

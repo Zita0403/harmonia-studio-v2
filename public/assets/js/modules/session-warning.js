@@ -1,5 +1,13 @@
 // Session warning, munkamenet lejárta
 export function initSessionWarning() {
+
+    if (window.location.pathname.includes('/login')) {
+        if (window.location.search.includes('reason=timeout')) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        return;
+    }
+
     const modal = document.getElementById("session-modal");
     const extendBtn = document.getElementById("extend-session-btn");
 
@@ -11,10 +19,8 @@ export function initSessionWarning() {
 
     let isWarningActive = false;
     
-    if (!localStorage.getItem("lastActivity")) {
-        localStorage.setItem("lastActivity", Date.now().toString());
-    }
-
+    localStorage.setItem("lastActivity", Date.now().toString());
+ 
     // Aktivitás frissítése (legfeljebb 5 mp-enként ír a localStorage-ba)
     let lastThrottle = 0;
     const recordActivity = () => {
@@ -33,15 +39,19 @@ export function initSessionWarning() {
     });
 
     // Időzítő ciklus az inaktivitás ellenőrzésére
-    setInterval(() => {
+    const sessionInterval = setInterval(() => {
         const lastActivity = parseInt(localStorage.getItem("lastActivity") || Date.now().toString(), 10);
         const idleTime = Date.now() - lastActivity;
 
         if (idleTime >= TIMEOUT_MS) {
+            clearInterval(sessionInterval);
+            localStorage.removeItem("lastActivity");
             window.location.href = "/login?reason=timeout";
         } else if (idleTime >= WARNING_MS) {
+            isWarningActive = true;
             modal.style.display = "flex";
         } else {
+            isWarningActive = false;
             modal.style.display = "none";
         }
     }, CHECK_INTERVAL);

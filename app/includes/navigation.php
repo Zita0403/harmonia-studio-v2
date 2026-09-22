@@ -8,7 +8,7 @@ $navItems = [
     ],
     [
         'label' => 'Szolgáltatások',
-        'url' => '#',
+        'url' => '',
         'submenu' => [
             ['label' => 'Arckezelések', 'url' => 'facial-treatment'],
             ['label' => 'Testkezelések', 'url' => 'body-treatment'],
@@ -23,14 +23,15 @@ $navItems = [
     ['label' => 'Admin', 'url' => 'admin'],
 ];
 
-// Aktuális oldal lekérése, ellenőrzés
-function isActive($url) {
-    $currentPath = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-    $urlPath = trim(parse_url($url, PHP_URL_PATH), '/');
+/**
+ * @SuppressWarnings(PHPMD.Superglobals)
+ */
+function isActive(?string $url = ''): string {
+    $url = $url ?? '';
+    $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+
+    $currentPath = trim(parse_url($requestUri, PHP_URL_PATH) ?? '', '/');
+    $urlPath = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
 
     return $currentPath === $urlPath ? 'active' : '';
-}
-
-
-
-    
+}   

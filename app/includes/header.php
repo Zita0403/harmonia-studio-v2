@@ -24,7 +24,7 @@ require_once __DIR__ . '/navigation.php';
 <!-- Elérhetőségek -->
 <div class="first-nav">
     <ul class="contact-info">
-        <li>+36 20 432-1234</li>
+        <li>+36 00 000 0000</li>
         <li>fiktivcim@gmail.com</li>
     </ul>
     <div class="brands-icons">
@@ -42,6 +42,22 @@ require_once __DIR__ . '/navigation.php';
     <!-- Az oldal menüje -->
     <ul class="main-menu">
         <?php foreach ($navItems as $item): ?>
+            <?php 
+                $hasSubmenu = !empty($item['submenu']);
+                $isAnchor = str_starts_with($item['url'], '#');
+
+                if ($hasSubmenu) {
+                    $href = '#';
+                } elseif ($isAnchor) {
+                    if (!isset($currentPage) || $currentPage === 'Főoldal' || $_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/index.php') {
+                        $href = $item['url'];
+                    } else {
+                        $href = BASE_URL . $item['url'];
+                    }
+                } else {
+                    $href = BASE_URL . $item['url'];
+                }
+            ?>
             <li class="<?= isActive($item['url']); ?>">
                 <a href="<?= BASE_URL . $item['url']; ?>"><?= $item['label']; ?></a>
                 <?php if (!empty($item['submenu'])): ?>
@@ -58,17 +74,38 @@ require_once __DIR__ . '/navigation.php';
     </ul>   
     <!-- Mobil menü ikonok  -->
     <button type="button" class="hamburger-menu" aria-label="Mobil menü megnyitása">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        <i class="fa-bars" aria-hidden="true"></i>
+        <i class="fa-times" aria-hidden="true"></i>
     </button>
     <!-- Mobil menü -->
     <ul class="hamburger-main-menu">
         <?php foreach ($navItems as $item): ?>
+            <?php 
+                $hasSubmenu = !empty($item['submenu']);
+                $isAnchor = str_starts_with($item['url'], '#');
+
+                if ($hasSubmenu) {
+                    $href = '#';
+                } elseif ($isAnchor) {
+                    if (!isset($currentPage) || $currentPage === 'Főoldal' || $_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/index.php') {
+                        $href = $item['url']; 
+                    } else {
+                        $href = BASE_URL . $item['url']; 
+                    }
+                } else {
+                    $href = BASE_URL . $item['url'];
+                }
+            ?>
             <li class="<?= isActive($item['url']); ?>">
-                <a href="<?= BASE_URL . $item['url']; ?>"><?= $item['label']; ?>
-                    <?php if (!empty($item['submenu'])): ?>
+                <?php if (!empty($item['submenu'])): ?>
+                    <div class="submenu-trigger">
+                        <span class="menu-title"><?= $item['label']; ?></span>
                         <i class="fa-chevron-down toggle-submenu" aria-hidden="true"></i>
-                    <?php endif; ?>
-                </a>
+                    </div>
+                <?php else: ?>  
+                    <a href="<?= BASE_URL . $item['url']; ?>"><?= $item['label']; ?></a>
+                <?php endif; ?>
+                
                 <?php if (!empty($item['submenu'])): ?>
                     <ul class="hamburger-submenu">
                         <?php foreach ($item['submenu'] as $submenuItem): ?>

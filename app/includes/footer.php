@@ -32,8 +32,8 @@ require_once dirname(__DIR__) . '/constans/constans.php';
                 <h4>Elérhetőség</h4>
                 <div>
                     <ul>
-                        <li>6723 Szeged, Felső Tisza-Part</li>
-                        <li>Telefonszám: +36 20 432-1234</li>
+                        <li>0000 Tesztváros, Példa utca 1.</li>
+                        <li>Telefonszám: +36 00 000 0000</li>
                         <li>E-mail: fiktivcim@gmail.com</li>
                     </ul>
                 </div>
