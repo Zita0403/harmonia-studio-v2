@@ -115,6 +115,11 @@ body {
 
         .hover-effect {
             transition: transform 0.5s ease; 
+            text-decoration: none;
+
+            @include text;
+
+            text-align: center;
         }
         
         .hover-effect:hover {
